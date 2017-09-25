@@ -40,4 +40,14 @@ yourList = [7, answer+1, 7*8]
 newList = [23, 29] ++ [ 48, 99, 56]
 sequenced = [0..5] ++ [100,102..110]
 seqAlpha = ['a'..'z']
-
+multThree = [3*x | x <- [1..10]]
+eve = [2*x | x <- [0..10]]
+odde = [2*x + 1 | x <- [0..10]]
+crossSet = [[a,b] | a <- [10,11,12] , b <- [20,21]]
+retIndex = [5,3,8,7] !! 2
+retIndex1 = [0..100] !! 85
+retIndex2 = ['a'..'z'] !! 0
+xs = [1,2,xs2 !! 5,4]
+xs2 = xs ++ xs
+xs3 = xs2 !! 2
+xs4 = xs !! 2
