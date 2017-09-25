@@ -1,7 +1,8 @@
-fizzBuzz xs = [if x `mod` 3 == 0 && x `mod` 5 == 0 then "FizzBuzz"
-                else if x `mod` 3 == 0 then "Fizz"
-                else if x `mod` 5 == 0 then "Buzz"
-                else show x
-                | x <- xs]
-
-              
+main = print [ fizzbuzz x | x <- [1..100 ] ]
+         where fizzbuzz x
+                | x `multipleOf` [3, 5] = "FizzBuzz"
+                | x `multipleOf` [3] = "Fizz"
+                | x `multipleOf` [5] = "Buzz"
+                | otherwise = show x
+                 where m `multipleOf` ns =
+                         all (\n -> m `mod` n == 0) ns
