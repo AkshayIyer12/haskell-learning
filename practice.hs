@@ -53,10 +53,3 @@ xs3 = xs2 !! 2
 xs4 = xs !! 2
 dsd = zipWith (\x->(\y->(x,y))) [1,2,3] "abc"
 zipss = zip [42] [True]
-
-let greet() = do
-      planet <- getLine
-      home <- getLine
-      putStrLn ("greetings " ++ planet ++ "ling.")
-      putStrLn ("I am from " ++ home ++ ".")
-      putStrLn "Take me to your leader."
