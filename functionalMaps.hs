@@ -15,3 +15,11 @@ g' = (/)
 accl = foldl g 1 lst
 
 accr = foldr g' 1 lst
+
+filtered pred lst
+         | null lst = []
+         | otherwise = if pred x
+           then x:filtered pred xs
+           else filter pred xs
+             where x:xs=lst
+
