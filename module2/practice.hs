@@ -1,3 +1,4 @@
+import System.Random
 --fact2 :: Int -> Int
 --fact2 0 = 1
 --fact2 n = n*fact2(n-1)
@@ -21,8 +22,11 @@ mkguess word display n =
      let n' = if correct then n else n-1
      turn word display' n'
 
-starman :: String -> Int -> IO ()
-starman word n = turn word ['-' | x <- word] n
-     
-
+starman :: Int -> IO ()
+starman n =
+  do num <- randomIO :: IO Int
+     let wordList = ["debugger", "helloWorld", "Shaun Pollock", "Compiler", "LispyScript"]
+     let i = mod num (length wordList)
+     let word = wordList !! i
+     turn word ['-' | x <- word] n
                 
