@@ -40,3 +40,12 @@ treeSum :: Tree -> Int
 treeSum Leaf = 0
 treeSum (Node x leftSubtree rightSubtree) = x + (treeSum leftSubtree) + (treeSum rightSubtree)
 
+insertValueToTree :: Tree -> Int -> Tree
+insertValueToTree Leaf value = Node value Leaf Leaf
+insertValueToTree (Node x leftSubtree rightSubtree) value
+  | value < x = Node x (insertValueToTree leftSubtree value) rightSubtree
+  | otherwise = Node x leftSubtree (insertValueToTree rightSubtree value)
+
+treeToList :: Tree -> [Int]
+treeToList Leaf = []
+treeToList (Node x leftSubtree rightSubtree) = [x] ++ (treeToList leftSubtree) ++ (treeToList rightSubtree)
