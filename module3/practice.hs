@@ -35,3 +35,8 @@ addNewMax :: Tree -> Tree
 addNewMax Leaf = Node 0 Leaf Leaf
 addNewMax (Node x t1 Leaf) = Node x t1 (Node (x+1) Leaf Leaf)
 addNewMax (Node x t1 t2) = Node x t1 (addNewMax t2)
+
+treeSum :: Tree -> Int
+treeSum Leaf = 0
+treeSum (Node x leftSubtree rightSubtree) = x + (treeSum leftSubtree) + (treeSum rightSubtree)
+
