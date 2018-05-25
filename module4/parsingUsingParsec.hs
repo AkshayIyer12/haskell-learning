@@ -1,6 +1,7 @@
 -- | 
 
 module Main where
+import ShowParser ( parseShow )
 
 data PersonRecord = MkPersonRecord {
     name :: String,
@@ -30,6 +31,6 @@ rec2 = MkPersonRecord
     (MkAddress "Geekskool" 2698 "19th Main Kodihalli" "Bangalore" "560008")
     1006645
     [Blue, Yellow]
-
-main = putStrLn $ show [rec1, rec2]
+rec_str = show [rec1, rec2]
+main = putStrLn $ parseShow rec_str
 
