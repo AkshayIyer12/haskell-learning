@@ -15,12 +15,17 @@ newtype Parser a = Parser
   }
    
 
+charP :: Char -> Parser Char
+charP x = Parser $ \input ->
+                 case input of
+                 y:ys | y == x -> Just (ys, x)
+                 _             -> Nothing
+
+jsonNull :: Parser JsonValue
+jsonNull = undefined
+
 jsonValue :: Parser JsonValue
 jsonValue = undefined
 
 main :: IO ()
 main = undefined
-
-
-
-
