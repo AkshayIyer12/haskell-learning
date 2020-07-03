@@ -20,10 +20,11 @@ newtype Parser a = Parser
 -- Nothing
 
 charP :: Char -> Parser Char
-charP x = Parser $ \input ->
-                 case input of
-                 y:ys | y == x -> Just (ys, x)
-                 _             -> Nothing
+charP x = Parser f
+    where
+      f (y:ys)
+          | y == x    = Just (ys, x)
+          | otherwise = Nothing
 
 jsonNull :: Parser JsonValue
 jsonNull = undefined
