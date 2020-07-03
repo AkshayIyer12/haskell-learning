@@ -1,5 +1,7 @@
 module Main where
 
+import Data.Char
+
 data JsonValue
   = JsonNull
   | JsonBool Bool
@@ -14,7 +16,11 @@ newtype Parser a = Parser
   { runParser :: String -> Maybe (String, a)
   }
 
- 
+instance Functor Parser where
+    fmap f (Parser p) = Parser $ \input -> do
+                          (input', x) <- p input
+                          Just (input', f x)
+
 -- *Main> runParser (charP 'n') "nice"
 -- Just ("ice",'n')
 -- *Main> runParser (charP 'n') "Hello"
