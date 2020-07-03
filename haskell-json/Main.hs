@@ -14,6 +14,10 @@ newtype Parser a = Parser
   { runParser :: String -> Maybe (String, a)
   }
    
+-- *Main> runParser (charP 'n') "nice"
+-- Just ("ice",'n')
+-- *Main> runParser (charP 'n') "Hello"
+-- Nothing
 
 charP :: Char -> Parser Char
 charP x = Parser $ \input ->
