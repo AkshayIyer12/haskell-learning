@@ -13,7 +13,8 @@ data JsonValue
 newtype Parser a = Parser
   { runParser :: String -> Maybe (String, a)
   }
-   
+
+ 
 -- *Main> runParser (charP 'n') "nice"
 -- Just ("ice",'n')
 -- *Main> runParser (charP 'n') "Hello"
@@ -25,6 +26,10 @@ charP x = Parser f
       f (y:ys)
           | y == x    = Just (ys, x)
           | otherwise = Nothing
+      f [] = Nothing
+
+-- stringP :: String -> Parser String
+-- stringP = sequenceA . map charP
 
 jsonNull :: Parser JsonValue
 jsonNull = undefined
